@@ -1,116 +1,451 @@
+/*----OBICNI-----*/
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: url("font/Montserrat-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+/*-----BOLD----*/
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: url("font/Montserrat-Bold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+/*---ITALIC---*/
+@font-face {
+  font-family: "Montserrat-Italic";
+  src: url("font/Montserrat-Italic.ttf");
+  font-weight: normal;
+  font-style: italic;
+}
 * {
   padding: 0;
   margin: 0;
+  font-family: "Montserrat-Regular";
+  scroll-behavior: smooth;
 }
-
+/*-----Posbeni skrollbar-----*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+/*-----traka skrollbara----*/
+::-webkit-scrollbar-track {
+  background: #818181;
+}
+/*----thumb skrollbara----*/
+::-webkit-scrollbar-thumb {
+  background: #ffd700;
+  border-radius: 15px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff8c00;
+}
+/*----Glavni kontenjer svega u NAVBARU----*/
+/*----Postavljen da stoji na vrhu stranice--*/
 .navbar-container {
   height: auto;
-  background-color: #ff8c00;
+  background-color: black;
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 100;
+  padding: 25px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-
+/*----Kontenjer gdje se nalazi Logo s nazivom produkcije*/
 .navbar-logo-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  padding: 25px 0;
-}
-
-.navbar-slika {
-  width: 20%;
+  width: 80%;
   height: 100%;
 }
-
+/*---LOGO----*/
 .navbar-logo {
-  width: 70px;
-  height: 70px;
-  margin-left: 20px;
+  width: 80px;
+  height: 80px;
+  margin: 0 10px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid red;
+  border: 3px solid #f080a0;
+  transition:
+    transform 0.3s ease,
+    text-decoration 0.3s ease;
+  display: inline-block;
 }
-
-.navbar-logo-tekst {
-  text-align: center;
-  width: 60%;
+/*------Transformacija prelaskom preko loga*/
+.navbar-logo:hover {
+  border: 3px solid #ffd700;
+  transform: translate(2px, 2px);
+  cursor: pointer;
+}
+/*.....Postavke teksta uz LOGO----*/
+.navbar-logo-container h1 {
+  color: #ff8c00;
   font-size: 1.5rem;
-  color: black;
 }
-
+/*-----DIV gdje se nalazi HAMBURGER navigacija---*/
 .navbar-prosiri {
-  width: 70px;
-  height: 70px;
-  margin-right: 20px;
-  float: right;
-}
-
-.navbar-main {
-  background-color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  gap: 30px;
-  width: 100%;
+  width: 20%;
   height: 100%;
+  display: flex;
+  justify-content: end;
+  margin-right: 25px;
+}
+/*----Slika gumba----*/
+.navbar-prosiri img {
+  width: 80px;
+  height: 80px;
+  background-color: #ff8c00;
+  border-radius: 50%;
+}
+/*------KOD overlay navigacije------*/
+.overlay {
+  height: 100%;
+  width: 100%;
   display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
 }
-
-.navbar-main-link {
+/*------Kontenjer samog sadrzaja Overlay nav-a---*/
+.overlay-sadrzaj {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+/*-----izgled linkova----*/
+.overlay a {
+  padding: 8px;
   text-decoration: none;
-  border-radius: 10px;
-  border: 1px solid white;
-  color: white;
-  padding: 15px 30px;
-  font-size: 1.5rem;
-  margin: 20px 0;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
 }
-
+.overlay a:hover,
+.overlay a:focus {
+  color: #f1f1f1;
+}
+/*-----zatvori gumb UNUTAR overlay nav----*/
+.overlay .overlay-zatvori {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
 .placeholder {
   height: 100vh;
   background-color: gray;
+  background-image: url(slike/random1.jpg);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  font-size: 2.5rem;
 }
-
+.placeholder-boja {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0, 0.8);
+}
+/*-----------------------------*/
+/*-----------------------------*/
+/*-----PROJEKTI-------*/
+/*-----------------------------*/
+/*-----glavni DIV-----*/
+.projekti-container {
+  min-height: 100vh;
+  padding: 100px 0;
+  background-color: black;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+/*-----DIV gdje se nalazi naslovni tekst----*/
+.projekti-naslov {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+}
+/*----podebljani tekst-----*/
+.projekti-naslov h1 {
+  font-family: "Montserrat-Bold";
+  font-size: 5rem;
+  font-weight: bold;
+  color: #ffd700;
+  margin: 0;
+}
+/*----nakošeni tekst---*/
+.projekti-naslov h2 {
+  font-family: "Montserrat-Italic";
+  font-size: 4rem;
+  color: #ff8c00;
+}
+/*----linija izmedju rijeci---*/
+.projekti-naslov hr {
+  width: 80%;
+  height: 3px;
+  background-color: #f080a0;
+  border: 0;
+  margin: 0 auto;
+}
+/*-----SECTION gdje se nalaze kartice projekta*/
+.projekti-main {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 20px 50px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+/*---skrollbar-----*/
+.projekti-main::-webkit-scrollbar {
+  height: 8px;
+}
+.projekti-main::-webkit-scrollbar-thumb {
+  background: #ff8c00;
+  border-radius: 10px;
+}
+/*-----dizajn kartice-----*/
+.projekt-kartica {
+  display: inline-block;
+  vertical-align: top;
+  white-space: normal;
+  width: 40%;
+  min-width: 300px;
+  min-height: 400px;
+  margin-right: 30px;
+  padding: 20px;
+  border-radius: 20px;
+  background: #ff8c00;
+  transition: 0.4s;
+  scroll-snap-align: center;
+}
+.projekt-kartica:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(255, 140, 0, 0.3);
+}
+.projekt-kartica h1 {
+  font-size: 1.5rem;
+  margin-top: 25px;
+  color: black;
+  font-style: italic;
+  transition:
+    transform 0.3s ease,
+    text-decoration 0.3s ease;
+  display: inline-block;
+}
+.projekt-kartica h1:hover {
+  text-decoration: underline;
+  transform: translate(5px, 5px);
+  cursor: pointer;
+}
+.projekt-kartica:hover {
+  translate: 0 -10px;
+}
+.kartica-slika {
+  height: 300px;
+  width: 100%;
+  background-color: #f080a0;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.kartica-slika img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.kartica-gumb {
+  border-radius: 15px;
+  display: block;
+  margin: 25px 0;
+  padding: 20px 25px;
+  width: 90%;
+  font-size: 1.2rem;
+  color: white;
+  border: 3px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+  font-family: "Montserrat-Italic";
+}
+.kartica-gumb::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  transform: translateX(-100%);
+  transition: all 0.3s;
+  z-index: -1;
+}
+.kartica-gumb:hover::before {
+  transform: translateX(0);
+}
+/*--------Brojevi neki------*/
+.brojevi-container {
+  width: 100%;
+  min-height: 100px;
+  padding: 50px 0;
+  height: 100%;
+  background-color: #f080a0;
+}
+.brojevi-main {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin: 0 auto;
+  height: 100%;
+}
+/*-----OBLIK KARTICE-----*/
+.brojevi-kartica {
+  width: 30%;
+  padding: 25px 25px;
+  border-radius: 15px;
+  border: 3px solid black;
+}
+.brojevi-kartica h1 {
+  font-size: 3rem;
+}
+.brojevi-kartica hr {
+  width: 80%;
+  border: 0;
+  height: 3px;
+  margin: 10px 0;
+  background-color: black;
+}
+/*--------------------------*/
+/*--------5. DIO STRANICE-----*/
+/*--------NEKA IZREKA--------*/
+/*--------------------------*/
+.izreka-container {
+  background-color: white;
+  width: 100%;
+  padding: 50px 0;
+  height: 100%;
+}
+.izreka-main {
+  width: 80%;
+  padding: 25px 0;
+  border-left: 4px solid #f080a0;
+  padding-left: 10px;
+}
+.izreka-main h1 {
+  font-size: 2rem;
+  font-style: italic;
+}
 @media (max-width: 750px) {
-  .navbar-main {
-    gap: 10px;
+  /*----PROJEKTI-----*/
+  .projekti-naslov {
+    padding: 25px 0;
   }
-  .navbar-main-link {
-    font-size: 1.2rem;
-    padding: 15px 20px;
-    margin: 10px 0;
+  .projekti-naslov h1 {
+    font-size: 3rem;
+  }
+  /*----nakošeni tekst---*/
+  .projekti-naslov h2 {
+    font-size: 3rem;
+  }
+  /*----linija izmedju rijeci---*/
+  .projekti-naslov hr {
+    width: 80%;
+    height: 3px;
+    background-color: #f080a0;
+    border: 0;
+    margin: 0 auto;
+  }
+  /*--------Brojevi neki------*/
+  .brojevi-container {
+    min-height: 100px;
+    padding: 25px 0;
+  }
+  .brojevi-main {
+    width: 90%;
+    flex-direction: column;
+    gap: 15px;
+  }
+  /*-----OBLIK KARTICE-----*/
+  .brojevi-kartica {
+    width: 90%;
+    padding: 25px 15px;
+    border-radius: 15px;
+    border: 3px solid black;
+  }
+  .brojevi-kartica h1 {
+    font-size: 2.5rem;
+  }
+  .brojevi-kartica hr {
+    width: 90%;
   }
 }
 
 @media (max-width: 450px) {
-  .navbar-logo-tekst{
-    font-size: 1rem;
-    padding: 0 15px;
-  } 
-  .navbar-logo{
+  .overlay a {
+    font-size: 20px;
+  }
+  .overlay .overlay-zatvori {
+    font-size: 100px;
+    top: 15px;
+    right: 35px;
+  }
+  .navbar-logo-container h1 {
     display: none;
-    clear: both;
   }
-
-  .navbar-slika{
-    width: 20%;
+  /*----PROJEKTI-----*/
+  .projekti-naslov {
+    padding: 15px 0;
   }
-  .navbar-main {
-    gap: 0;
-    height: 100%;
-    flex-direction: column;
+  .projekti-naslov h1 {
+    font-size: 2.5rem;
   }
-  .navbar-main-link {
+  /*----nakošeni tekst---*/
+  .projekti-naslov h2 {
+    font-size: 2.5rem;
+  }
+  /*----linija izmedju rijeci---*/
+  .projekti-naslov hr {
     width: 90%;
-    text-align: center;
-    font-size: 1rem;
+  }
+  /*--------Brojevi neki------*/
+  .brojevi-container {
+    padding: 15px 0;
+  }
+  .brojevi-main {
+    gap: 10px;
+  }
+  /*-----OBLIK KARTICE-----*/
+  .brojevi-kartica {
+    width: 90%;
     padding: 15px 15px;
-    margin: 5px auto;
+  }
+  .brojevi-kartica h1 {
+    font-size: 2rem;
+  }
+  .brojevi-kartica p{
+    font-size: 1rem;
+  }
+  .brojevi-kartica hr {
+    width: 90%;
   }
 }

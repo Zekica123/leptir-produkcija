@@ -9,82 +9,133 @@
   </head>
   <body>
     <div class="navbar-container">
-      <!--Sekcija navbara s logom i tekstom-->
-      <section class="navbar-logo-container">
-        <!--Kontenjer gdje se nalazi sam logo-->
-        <section class="navbar-slika">
-          <img
-            class="navbar-logo"
-            src="slike/logo.jpg"
-            alt="Logo Leptir produkcija"
-            width="100%"
-            height="100%"
-          />
-        </section>
-        <section class="navbar-logo-tekst">
-          <h1>Leptir produkcija</h1>
-        </section>
-        <section class="navbar-slika">
-          <a href="javascript:void(0)" onclick="prosiriNavbar()" id="prosiriLogo">
-            <img src="slike/hb_logo1.svg" class="navbar-prosiri"  />
-          </a>
-        </section>
+      <!----Sadržaj OVERLAY navigacije------>
+      <section class="overlay" id="navOverlay">
+        <a
+          href="javascript:void(0)"
+          class="overlay-zatvori"
+          onclick="zatvoriNav()"
+          >&times;</a
+        >
+        <div class="overlay-sadrzaj">
+          <a href="#projekti">Projekti</a>
+          <a href="#brojke">Brojevi & citat</a>
+        </div>
       </section>
-      <!--Kontenjer s navigacijom-->
-      <section class="navbar-main" id="prosireniNav">
-        <!--Svaki link zasebno-->
-        <a href="#link1" class="navbar-main-link">link 1</a>
-        <a href="" class="navbar-main-link"> link 2 </a>
-        <a href="" class="navbar-main-link"> link 3 </a>
-        <a href="" class="navbar-main-link"> link 4</a>
-        <a href="" class="navbar-main-link"> link 5</a>
+      <!--Logo producije s nazivom odnosno tekstom------>
+      <section class="navbar-logo-container">
+        <img
+          class="navbar-logo"
+          src="slike/logo.jpg"
+          alt="Logo Leptir produkcija"
+          width="100%"
+          height="100%"
+        />
+        <h1>Leptir produkcija</h1>
+      </section>
+      <!--Gumb kojim se otvara OVERLAY navigacija-->
+      <section class="navbar-prosiri">
+        <img
+          onclick="otvoriNav()"
+          src="slike/hb_logo1.svg"
+          alt="Gumb za otvaranje OVERLAY navigacije"
+        />
       </section>
     </div>
-    <section class="placeholder">
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-    </section>
-    <section class="placeholder">
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-      <p>Some text some text some text some text.</p>
-    </section>
+    <!---privremeni DIV umjesto VIDEA dobrodoslice-->
+    <div class="placeholder">
+      <section class="placeholder-boja"></section>
+    </div>
+    <!--1. DIO STRANICE---PROJEKTI-->
+    <!----1.1.) glavni kontenjer-->
+    <div class="projekti-container" id="projekti">
+      <!----1.2.)--sekcija s naslovom ovog djela stranice-->
+      <section class="projekti-naslov">
+        <h1>naši</h1>
+        <hr />
+        <h2>PROJEKTI</h2>
+      </section>
+      <!--Kontenjer gdje se nalaze sve kartice projekata-->
+      <section class="projekti-main">
+        <div class="projekt-kartica">
+          <section class="kartica-slika">
+            <img src="slike/pr1.jpg" alt="Alen Babić" />
+          </section>
+          <h1>Projekt br. 1</h1>
+          <a class="kartica-gumb" href="">Stisni za više informacija</a>
+        </div>
+        <div class="projekt-kartica">
+          <section class="kartica-slika">
+            <img src="slike/pr2.jpg" alt="Luka Modrić" />
+          </section>
+          <h1>Projekt br. 2</h1>
+          <a class="kartica-gumb" href="">Stisni za više informacija</a>
+        </div>
+        <div class="projekt-kartica">
+          <section class="kartica-slika">
+            <img src="slike/pr1.jpg" alt="Alen Babić" />
+          </section>
+          <h1>Projekt br.3</h1>
+          <a class="kartica-gumb" href="">Stisni za više informacija</a>
+        </div>
+        <div class="projekt-kartica">
+          <section class="kartica-slika">
+            <img src="slike/pr2.jpg" alt="Alen Babić" />
+          </section>
+          <h1>Projekt br.4</h1>
+          <a class="kartica-gumb" href="">Stisni za više informacija</a>
+        </div>
+      </section>
+    </div>
+    <!--Kontenjer gdje se nalaze neke brojke!-->
+    <div class="brojevi-container" id="brojke">
+      <section class="brojevi-main">
+        <div class="brojevi-kartica">
+          <h1>500</h1>
+          <hr />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
+            praesentium quis autem sequi at modi consequatur non aut? Voluptates
+            ullam temporibus odio, laborum tempore possimus vero qui reiciendis
+            id accusamus?
+          </p>
+        </div>
+        <div class="brojevi-kartica">
+          <h1>500</h1>
+          <hr />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
+            praesentium quis autem sequi at modi consequatur non aut? Voluptates
+            ullam temporibus odio, laborum tempore possimus vero qui reiciendis
+            id accusamus?
+          </p>
+        </div>
+        <div class="brojevi-kartica">
+          <h1>500</h1>
+          <hr />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
+            praesentium quis autem sequi at modi consequatur non aut? Voluptates
+            ullam temporibus odio, laborum tempore possimus vero qui reiciendis
+            id accusamus?
+          </p>
+        </div>
+      </section>
+    </div>
+    <!---5. DIO STRANICE-->
+    <!---IZREKA----------->
+    <div class="izreka-container">
+      <section class="izreka-main">
+        <h1>
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo nemo ea
+          blanditiis doloremque"
+        </h1>
+        <p>- DFdsfsdf</p>
+      </section>
+    </div>
+
     <!--Javacsript linkovi!-->
     <script src="navbar.js"></script>
+    <script src="zatvori_overlay.js"></script>
   </body>
 </html>
