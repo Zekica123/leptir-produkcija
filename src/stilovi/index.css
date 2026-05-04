@@ -1,0 +1,971 @@
+:root {
+  --nar: #ff8c00;
+  --roza: #f080a0;
+  --zuta: #ffd700;
+  --crna: #000000;
+  --bijela: #fff;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/*----VELICINE TEKSTA----*/
+h1 {
+  font-size: 5rem;
+}
+h2 {
+  font-size: 4rem;
+}
+h3 {
+  font-size: 3rem;
+}
+p {
+  font-size: 1.3rem;
+}
+/*-----Posbeni skrollbar-----*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+/*-----traka skrollbara----*/
+::-webkit-scrollbar-track {
+  background: #818181;
+}
+/*----thumb skrollbara----*/
+::-webkit-scrollbar-thumb {
+  background: #ffd700;
+  border-radius: 15px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff8c00;
+}
+/*----Navbar----*/
+.navbar {
+  background-color: #000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 15px 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+/*----Brand (logo + naziv)----*/
+.navbar-brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+/*---Logo----*/
+.navbar-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid #f080a0;
+  object-fit: cover;
+  flex-shrink: 0;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+.navbar-logo:hover {
+  border-color: #ffd700;
+  transform: translate(2px, 2px);
+}
+/*----Naziv firme----*/
+.navbar-naziv {
+  color: #ff8c00;
+  font-size: 1.5rem;
+  white-space: nowrap;
+}
+/*----Desktop linkovi----*/
+.navbar-linkovi {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.navbar-linkovi a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.navbar-linkovi a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ff8c00;
+  transition: width 0.3s ease;
+}
+.navbar-linkovi a:hover {
+  color: #ff8c00;
+}
+.navbar-linkovi a:hover::after {
+  width: 100%;
+}
+/*----Hamburger gumb (sakriven na desktopu)----*/
+.navbar-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+.navbar-hamburger span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: #ff8c00;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+/*----Overlay navigacija (mobilna)----*/
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 150;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.nav-overlay.aktivan {
+  opacity: 1;
+  pointer-events: all;
+}
+/*----Zatvori gumb unutar overlaya----*/
+.nav-overlay-zatvori {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 60px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.nav-overlay-zatvori:hover {
+  color: #fff;
+}
+/*----Overlay linkovi----*/
+.nav-overlay-linkovi {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.nav-overlay-linkovi li {
+  margin: 15px 0;
+}
+.nav-overlay-linkovi a {
+  color: #818181;
+  text-decoration: none;
+  font-size: 2.5rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+.nav-overlay-linkovi a:hover {
+  color: #ff8c00;
+}
+/*-----------------------------*/
+/*-------PRVI DIO--------------*/
+/*-----DOBRODOSLICA + SHOWREEL--*/
+/*----Glavni kontenjer: dva stupca---*/
+.dobrodosli-container {
+  padding: 100px 0;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: #191a1a;
+  background-image:
+    linear-gradient(
+      0deg,
+      transparent 24%,
+      var(--roza) 25%,
+      var(--roza) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--roza) 75%,
+      var(--roza) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      var(--roza) 25%,
+      var(--roza) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--roza) 75%,
+      var(--roza) 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 55px 55px;
+  border-bottom: 12px solid var(--roza);
+  align-items: center;
+}
+
+/*----Lijevi stupac: tekst dobrodoslice----*/
+.dobrodosli-container article {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.liquid-glass {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(28px) saturate(180%) brightness(1.04);
+  -webkit-backdrop-filter: blur(28px) saturate(180%) brightness(1.04);
+  border-radius: 20px;
+  padding: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.15),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+  isolation: isolate;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.liquid-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.02) 35%,
+    transparent 65%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+}
+.liquid-glass > * {
+  position: relative;
+  z-index: 1;
+}
+.liquid-glass .ukras {
+  position: absolute;
+  background-color: var(--primary-color);
+  border-radius: 50px;
+  box-shadow:
+    inset 4px 4px 10px var(--accent-color),
+    inset -4px -4px 10px var(--crna);
+  color: #4d4d4d;
+  height: 50px;
+  width: 50px;
+  top: -25px;
+  left: -15px;
+  border: 2px solid var(--secondary-color);
+  overflow: hidden;
+}
+.liquid-glass .ukras img {
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  object-fit: cover;
+}
+.dobrodosli-container article h1 {
+  color: var(--nar);
+  padding: 20px;
+}
+.dobrodosli-container article h2 {
+  color: var(--roza);
+  padding: 20px;
+}
+.dobrodosli-gumb {
+  margin-top: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  padding: 20px 25px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background-color: var(--crna);
+  overflow: hidden;
+  isolation: isolate;
+  z-index: 0;
+}
+.dobrodosli-gumb::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: conic-gradient(
+    from 0deg,
+    var(--nar),
+    var(--roza),
+    var(--zuta),
+    var(--nar),
+    var(--roza)
+  );
+  z-index: -2;
+}
+.dobrodosli-gumb::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 999px;
+  background: var(--crna);
+  z-index: -1;
+  transition: background-color 0.3s ease;
+}
+.dobrodosli-gumb:hover::after {
+  background: rgba(255, 255, 255, 0.1);
+}
+/*----Video overlay----*/
+.showreel-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.showreel-overlay.aktivan {
+  opacity: 1;
+  pointer-events: all;
+}
+.video-overlay-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  background: none;
+  border: none;
+  color: #f080a0;
+  font-size: 50px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  z-index: 201;
+}
+.video-overlay-close:hover {
+  color: var(--nar);
+}
+.video-container {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 50px rgba(255, 140, 0, 0.4);
+}
+.dobrodosli-video {
+  flex-grow: 2;
+  height: 100%;
+  width: 100%;
+}
+.dobrodosli-video img {
+  width: 90%;
+  margin: 0 auto;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 20px;
+  border: 12px solid var(--nar);
+}
+.dobrodosli-video a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+/*-----------------------------*/
+/*-------DRUGI DIO--------------*/
+.info-container {
+  width: 100%;
+  height: auto;
+  min-height: 500px;
+  display: flex;
+  flex-direction: row;
+}
+.info-praznina {
+  padding: 50px 0;
+  flex-grow: 1;
+  align-self: stretch;
+  color: var(--accent-color);
+  background-color: #111;
+  background-image:
+    linear-gradient(
+      135deg,
+      #0000 18.75%,
+      var(--primary-color) 0 31.25%,
+      #0000 0
+    ),
+    linear-gradient(
+      45deg,
+      #0000 18.75%,
+      var(--secondary-color) 0 31.25%,
+      #0000 0
+    ),
+    linear-gradient(
+      135deg,
+      #0000 18.75%,
+      var(--secondary-color) 0 31.25%,
+      #0000 0
+    ),
+    linear-gradient(45deg, #0000 18.75%, var(--primary-color) 0 31.25%, #0000 0);
+  background-size: 60px 60px;
+  background-position:
+    0 0,
+    0 0,
+    30px 30px,
+    30px 30px;
+  animation: slide 4s linear infinite;
+}
+/*----Animacija pozadine----*/
+@keyframes slide {
+  to {
+    background-position:
+      60px 0,
+      60px 0,
+      90px 30px,
+      90px 30px;
+  }
+}
+.info-container article {
+  flex-grow: 2;
+  background-color: var(--crna);
+}
+.info-tekst {
+  position: absolute;
+  width: 80%;
+  margin: 0 auto;
+  height: 90%;
+  left: 10%;
+  top: 10%;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(28px) saturate(180%) brightness(1.04);
+  -webkit-backdrop-filter: blur(28px) saturate(180%) brightness(1.04);
+  border-radius: 20px;
+  padding: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.15),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+
+  isolation: isolate;
+}
+.info-tekst::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.02) 35%,
+    transparent 65%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+}
+.info-tekst > * {
+  position: relative;
+  z-index: 1;
+}
+.info-tekst h2 {
+  font-size: 2.5rem;
+  color: #ff8c00;
+  margin-bottom: 20px;
+}
+.info-tekst p {
+  color: #f080a0;
+}
+.info-tekst hr {
+  width: 80%;
+  height: 6px;
+  margin: 20px 0;
+  background-color: #ffd700;
+  border: 0;
+}
+.info-tekst .ukras {
+  position: absolute;
+  background-color: var(--primary-color);
+  border-radius: 50px;
+  box-shadow:
+    inset 4px 4px 10px var(--accent-color),
+    inset -4px -4px 10px var(--crna);
+  color: #4d4d4d;
+  height: 50px;
+  width: 50px;
+  top: -25px;
+  left: -15px;
+  border: 2px solid var(--secondary-color);
+  overflow: hidden;
+}
+.info-tekst .ukras img {
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  object-fit: cover;
+}
+/*-----------------------------*/
+/*-------TRECI DIO--------------*/
+.about-container {
+  width: 100%;
+  height: auto;
+  min-height: 500px;
+  display: flex;
+  flex-direction: row;
+}
+.about-container article {
+  flex-grow: 3;
+  background-color: var(--crna);
+  position: relative;
+  background: repeating-linear-gradient(
+    45deg,
+    #000 0,
+    #000 20px,
+    #262828 20px,
+    #262828 40px
+  );
+}
+.about-tekst {
+  position: absolute;
+  width: 80%;
+  height: auto;
+  min-height: 90%;
+  left: 10%;
+  top: 10%;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(28px) saturate(180%) brightness(1.04);
+  -webkit-backdrop-filter: blur(28px) saturate(180%) brightness(1.04);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.15),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+  isolation: isolate;
+}
+.about-tekst::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.02) 35%,
+    transparent 65%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+}
+.about-tekst > * {
+  position: relative;
+  z-index: 1;
+}
+.about-tekst h2 {
+  padding: 20px;
+  color: var(--nar);
+}
+.about-tekst p {
+  color: var(--bijela);
+  padding: 20px;
+}
+/*----Ukrasna linija ispod naslova----*/
+.about-tekst hr,
+.kontaktiraj hr,
+.dobrodosli-container article hr {
+  width: 60%;
+  margin-left: 20px;
+  height: 12px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--nar), var(--roza), var(--zuta));
+  box-shadow:
+    0 0 18px rgba(255, 140, 0, 0.35),
+    inset 0 0 10px rgba(255, 255, 255, 0.18);
+}
+.about-tekst .ukras {
+  position: absolute;
+  background-color: var(--nar);
+  border-radius: 50px;
+  box-shadow:
+    inset 4px 4px 10px var(--zuta),
+    inset -4px -4px 10px var(--crna);
+  height: 50px;
+  width: 50px;
+  top: -25px;
+  left: -15px;
+  border: 2px solid var(--roza);
+  overflow: hidden;
+}
+.about-tekst .ukras img {
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  object-fit: cover;
+}
+.about-praznina {
+  flex-grow: 1;
+  align-self: stretch;
+  border-left: 12px solid var(--roza);
+  background-color: #111;
+  background-image:
+    linear-gradient(135deg, #0000 18.75%, var(--nar) 0 31.25%, #0000 0),
+    linear-gradient(45deg, #0000 18.75%, var(--zuta) 0 31.25%, #0000 0),
+    linear-gradient(135deg, #0000 18.75%, var(--roza) 0 31.25%, #0000 0),
+    linear-gradient(45deg, #0000 18.75%, var(--nar) 0 31.25%, #0000 0);
+  background-size: 60px 60px;
+  background-position:
+    0 0,
+    0 0,
+    30px 30px,
+    30px 30px;
+  animation: slide 4s linear infinite;
+}
+/*-----------------------------*/
+/*-------KONTAKTIRAJ NAS-------*/
+.kontaktiraj {
+  width: 100%;
+  background-color: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 80px 40px;
+  text-align: center;
+}
+.kontaktiraj h2 {
+  color: var(--roza);
+}
+.kontaktiraj span {
+  color: var(--nar);
+  font-style: italic;
+  text-decoration: dashed underline;
+}
+.kontaktiraj p {
+  color: var(--bijela);
+  max-width: 540px;
+}
+.kontaktiraj-gumb {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding: 20px 25px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background-color: var(--crna);
+  overflow: hidden;
+  isolation: isolate;
+  z-index: 0;
+}
+.kontaktiraj-gumb::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: conic-gradient(
+    from 0deg,
+    var(--nar),
+    var(--roza),
+    var(--zuta),
+    var(--nar),
+    var(--roza)
+  );
+  z-index: -2;
+}
+.kontaktiraj-gumb::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 999px;
+  background: var(--crna);
+  z-index: -1;
+  transition: background-color 0.3s ease;
+}
+
+/*-----------------------------*/
+/*-------ZADNJI DIO--------------*/
+footer {
+  width: 100%;
+  background-color: #000;
+  border-top: 3px solid #ff8c00;
+}
+/*----Stupci footera----*/
+.footer-stupci {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 60px 80px;
+  flex-wrap: wrap;
+}
+.footer-stupac {
+  flex: 1;
+  min-width: 180px;
+}
+/*----Naziv firme----*/
+.footer-naziv {
+  font-size: 1.5rem;
+  color: #ff8c00;
+  margin-bottom: 14px;
+  font-weight: bold;
+}
+/*----Podtekst----*/
+.footer-podtekst {
+  color: #818181;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 260px;
+}
+/*----Naslovi stupaca----*/
+.footer-naslov-stupca {
+  font-size: 1rem;
+  color: #ffd700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+/*----Linkovi u foooter stupcima----*/
+.footer-linkovi {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-linkovi a {
+  color: #818181;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+.footer-linkovi a:hover {
+  color: #ff8c00;
+}
+/*----Socijalni linkovi s ikonama----*/
+.footer-socijalni a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-socijalni svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: #f080a0;
+  transition: color 0.3s ease;
+}
+.footer-socijalni a:hover svg {
+  color: #ff8c00;
+}
+/*----Dno footera----*/
+.footer-dno {
+  border-top: 1px solid #1a1a1a;
+  padding: 20px 80px;
+  text-align: center;
+}
+.footer-dno p {
+  color: #555;
+  font-size: 0.85rem;
+}
+.footer-dno span {
+  color: #f080a0;
+  font-weight: bold;
+}
+/*-----------------------------*/
+/*-----------RESPONZIVNOST----*/
+
+@media (max-width: 1100px) {
+  .dobrodosli-tekst h1 {
+    font-size: 3rem;
+  }
+  .dobrodosli-tekst h2 {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+  h3 {
+    font-size: 2.5rem;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+  .navbar-linkovi {
+    display: none;
+  }
+  .navbar-hamburger {
+    display: flex;
+  }
+
+  .info-container {
+    flex-direction: column;
+    width: 100%;
+    background-color: red;
+  }
+  .info-praznina {
+    display: none;
+  }
+  .info-container article {
+    width: 100%;
+    height: auto;
+    min-height: 100px;
+  }
+  .info-tekst {
+    position: relative;
+    top: unset;
+    left: unset;
+    width: 90%;
+    height: auto;
+    margin: 50px auto;
+  }
+  .about-container {
+    flex-direction: column;
+  }
+  .about-praznina {
+    display: none;
+  }
+  .about-container article {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+  }
+  .about-tekst {
+    position: relative;
+    top: unset;
+    left: unset;
+    width: 90%;
+    height: auto;
+    margin: 50px auto;
+  }
+  .kontaktiraj-gumb {
+    width: 85%;
+  }
+  .footer-stupci {
+    flex-direction: column;
+    padding: 40px 30px;
+    gap: 30px;
+  }
+  .footer-stupac {
+    min-width: unset;
+    width: 100%;
+  }
+  .footer-podtekst {
+    max-width: 100%;
+  }
+  .footer-dno {
+    padding: 20px 30px;
+  }
+}
+@media (max-width: 450px) {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+  .dobrodosli-container article {
+    width: 90%;
+  }
+  .dobrodosli-gumb {
+    width: 85%;
+    padding: 15px 20px;
+    font-size: 0.95rem;
+  }
+  .kontaktiraj-gumb {
+    width: 95%;
+    font-size: 0.95rem;
+    padding: 14px;
+  }
+  .footer-naziv {
+    font-size: 1.3rem;
+  }
+  .footer-naslov-stupca {
+    font-size: 0.9rem;
+  }
+}

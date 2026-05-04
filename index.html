@@ -1,141 +1,256 @@
 <!doctype html>
-<html lang="en">
+<html lang="hr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Leptir produkcija</title>
-    <link rel="stylesheet" href="index.css" />
-    <link rel="icon" href="slike/logo_sluzbeni.jpg" />
+    <link rel="stylesheet" href="src/stilovi/index.css" />
+    <link rel="icon" href="src/slike/logo.jpg" />
   </head>
   <body>
-    <div class="navbar-container">
-      <!----Sadržaj OVERLAY navigacije------>
-      <section class="overlay" id="navOverlay">
-        <a
-          href="javascript:void(0)"
-          class="overlay-zatvori"
-          onclick="zatvoriNav()"
-          >&times;</a
-        >
-        <div class="overlay-sadrzaj">
-          <a href="#projekti">Projekti</a>
-          <a href="#brojke">Brojevi & citat</a>
-        </div>
-      </section>
-      <!--Logo producije s nazivom odnosno tekstom------>
-      <section class="navbar-logo-container">
+    <!--NAVIGACIJA-->
+    <nav class="navbar">
+      <a href="index.html" class="navbar-brand">
         <img
           class="navbar-logo"
-          src="slike/logo.jpg"
+          src="src/slike/logo.jpg"
           alt="Logo Leptir produkcija"
+        />
+        <span class="navbar-naziv">Leptir produkcija</span>
+      </a>
+      <ul class="navbar-linkovi">
+        <li><a href="index.html">POČETNA</a></li>
+        <li><a href="projekti.html">PROJEKTI</a></li>
+        <li><a href="usluge.html">USLUGE</a></li>
+        <li><a href="kontakt.html">KONTAKT</a></li>
+      </ul>
+      <button
+        class="navbar-hamburger"
+        id="hamburgerGumb"
+        aria-label="Otvori navigaciju"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <!--OVERLAY NAVIGACIJA (mobilna)-->
+      <div class="nav-overlay" id="navOverlay">
+        <button
+          class="nav-overlay-zatvori"
+          id="overlayZatvori"
+          aria-label="Zatvori navigaciju"
+        >
+          &times;
+        </button>
+        <ul class="nav-overlay-linkovi">
+          <li><a href="index.html">POČETNA</a></li>
+          <li><a href="projekti.html">PROJEKTI</a></li>
+          <li><a href="usluge.html">USLUGE</a></li>
+          <li><a href="kontakt.html">KONTAKT</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!--1. DIO: dobrodoslica + showreel-->
+    <div class="dobrodosli-container" id="dobrodosli">
+      <article>
+        <section class="liquid-glass">
+          <div class="ukras">
+            <img src="src/slike/logo.jpg" alt="Logo leptir produkcije" />
+          </div>
+          <h1>Dobrodošli</h1>
+          <hr />
+          <h2>u svijet Leptir produkcije</h2>
+          <a class="dobrodosli-gumb" href="#" id="openVideoBtn">Pogledajte nas showreel!</a>
+        </section>
+      </article>
+    </div>
+    <!--Video overlay-->
+    <div class="showreel-overlay" id="videoOverlay">
+      <button class="video-overlay-close" id="closeVideoBtn" aria-label="Zatvori video">&times;</button>
+      <div class="video-container">
+        <iframe
+          title="vimeo-player"
+          src="https://player.vimeo.com/video/198676162?h=78df489657"
           width="100%"
           height="100%"
-        />
-        <h1>Leptir produkcija</h1>
-      </section>
-      <!--Gumb kojim se otvara OVERLAY navigacija-->
-      <section class="navbar-prosiri">
-        <img
-          onclick="otvoriNav()"
-          src="slike/hb_logo1.svg"
-          alt="Gumb za otvaranje OVERLAY navigacije"
-        />
-      </section>
+          frameborder="0"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="
+            autoplay;
+            fullscreen;
+            picture-in-picture;
+            clipboard-write;
+            encrypted-media;
+            web-share;
+          "
+          allowfullscreen
+        ></iframe>
+      </div>
     </div>
-    <!---privremeni DIV umjesto VIDEA dobrodoslice-->
-    <div class="placeholder">
-      <section class="placeholder-boja"></section>
-    </div>
-    <!--1. DIO STRANICE---PROJEKTI-->
-    <!----1.1.) glavni kontenjer-->
-    <div class="projekti-container" id="projekti">
-      <!----1.2.)--sekcija s naslovom ovog djela stranice-->
-      <section class="projekti-naslov">
-        <h1>naši</h1>
-        <hr />
-        <h2>PROJEKTI</h2>
-      </section>
-      <!--Kontenjer gdje se nalaze sve kartice projekata-->
-      <section class="projekti-main">
-        <div class="projekt-kartica">
-          <section class="kartica-slika">
-            <img src="slike/pr1.jpg" alt="Alen Babić" />
-          </section>
-          <h1>Projekt br. 1</h1>
-          <a class="kartica-gumb" href="">Stisni za više informacija</a>
-        </div>
-        <div class="projekt-kartica">
-          <section class="kartica-slika">
-            <img src="slike/pr2.jpg" alt="Luka Modrić" />
-          </section>
-          <h1>Projekt br. 2</h1>
-          <a class="kartica-gumb" href="">Stisni za više informacija</a>
-        </div>
-        <div class="projekt-kartica">
-          <section class="kartica-slika">
-            <img src="slike/pr1.jpg" alt="Alen Babić" />
-          </section>
-          <h1>Projekt br.3</h1>
-          <a class="kartica-gumb" href="">Stisni za više informacija</a>
-        </div>
-        <div class="projekt-kartica">
-          <section class="kartica-slika">
-            <img src="slike/pr2.jpg" alt="Alen Babić" />
-          </section>
-          <h1>Projekt br.4</h1>
-          <a class="kartica-gumb" href="">Stisni za više informacija</a>
-        </div>
-      </section>
-    </div>
-    <!--Kontenjer gdje se nalaze neke brojke!-->
-    <div class="brojevi-container" id="brojke">
-      <section class="brojevi-main">
-        <div class="brojevi-kartica">
-          <h1>500</h1>
+    <!--O nama-->
+    <div class="about-container">
+      <article>
+        <div class="about-tekst">
+          <div class="ukras">
+            <img src="src/slike/logo.jpg" alt="Logo Leptir produkcije" />
+          </div>
+          <h2>Nesto o nama!</h2>
           <hr />
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-            praesentium quis autem sequi at modi consequatur non aut? Voluptates
-            ullam temporibus odio, laborum tempore possimus vero qui reiciendis
-            id accusamus?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
+            explicabo, consectetur eaque maiores in iure, ducimus aliquid
+            itaque, ratione laborum excepturi expedita. Eveniet molestiae
+            consequatur, exercitationem natus quae placeat reiciendis!
           </p>
         </div>
-        <div class="brojevi-kartica">
-          <h1>500</h1>
+      </article>
+      <section class="about-praznina"></section>
+    </div>
+    <!--Info-->
+    <!--<div class="info-container">
+      <section class="info-praznina"></section>
+      <article>
+        <div class="info-tekst">
+          <div class="ukras">
+            <img
+              src="src/slike/logo.jpg"
+              alt="Logo Leptir produkcije"
+              srcset=""
+            />
+          </div>
+          <h2>Neki info1</h2>
           <hr />
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-            praesentium quis autem sequi at modi consequatur non aut? Voluptates
-            ullam temporibus odio, laborum tempore possimus vero qui reiciendis
-            id accusamus?
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
-        <div class="brojevi-kartica">
-          <h1>500</h1>
+      </article>
+      <article>
+        <div class="info-tekst">
+          <div class="ukras">
+            <img
+              src="src/slike/logo.jpg"
+              alt="Logo Leptir produkcije"
+              srcset=""
+            />
+          </div>
+          <h2>Neki info1</h2>
           <hr />
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-            praesentium quis autem sequi at modi consequatur non aut? Voluptates
-            ullam temporibus odio, laborum tempore possimus vero qui reiciendis
-            id accusamus?
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
-      </section>
+      </article>
     </div>
-    <!---5. DIO STRANICE-->
-    <!---IZREKA----------->
-    <div class="izreka-container">
-      <section class="izreka-main">
-        <h1>
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo nemo ea
-          blanditiis doloremque"
-        </h1>
-        <p>- DFdsfsdf</p>
-      </section>
+    <!- -Kontaktiraj nas-->
+    <div class="kontaktiraj">
+      <h2>Sviđa ti se <span>naš rad</span>?</h2>
+      <hr />
+      <p>
+        Slobodno nam se obrati — tu smo da vaše ideje pretvorimo u stvarnost.
+      </p>
+      <a href="kontakt.html" class="kontaktiraj-gumb">Kontaktirajte nas</a>
     </div>
-
+    <footer>
+      <div class="footer-stupci">
+        <!--1. stupac: firma-->
+        <div class="footer-stupac">
+          <h3 class="footer-naziv">Leptir produkcija</h3>
+          <p class="footer-podtekst">
+            Kreativna agencija specijalizirana za produkciju video sadržaja.
+            Stvaramo priče koje ostavljaju dojam.
+          </p>
+        </div>
+        <!--2. stupac: navigacija-->
+        <div class="footer-stupac">
+          <h4 class="footer-naslov-stupca">Navigacija</h4>
+          <ul class="footer-linkovi">
+            <li><a href="index.html">Početna</a></li>
+            <li><a href="projekti.html">Projekti</a></li>
+            <li><a href="usluge.html">Usluge</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <!--3. stupac: društvene mreže-->
+        <div class="footer-stupac">
+          <h4 class="footer-naslov-stupca">Pratite nas</h4>
+          <ul class="footer-linkovi footer-socijalni">
+            <li>
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  />
+                </svg>
+                Facebook
+              </a>
+            </li>
+            <li>
+              <a href="mailto:info@leptirprodukcija.hr">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                Mail
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-dno">
+        <p>Stranicu napravio <span>Ivan Mihael Zec</span></p>
+      </div>
+    </footer>
     <!--Javacsript linkovi!-->
-    <script src="navbar.js"></script>
+    <script src="modal.js"></script>
+    <script src="src/javascript/navbar.js"></script>
     <script src="zatvori_overlay.js"></script>
+    <script src="src/javascript/video-modal.js"></script>
   </body>
 </html>
